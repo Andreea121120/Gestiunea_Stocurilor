@@ -1,0 +1,673 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5D2FC06A-BD02-475A-9C22-19C730CB05D2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Gestiunea_stocurilor</RootNamespace>
+    <AssemblyName>Gestiunea_stocurilor</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AvizExpeditie.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BalantaProdusDetaliat_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BalantaStocuri_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BonConsum.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BonTransfer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CalculValoareIesireCMPTV_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CMP_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CMP_StocCurent_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContinutFactura.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContinutFactura.Partial.cs" />
+    <Compile Include="ContinutNIR.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContinutNIR.partial.cs" />
+    <Compile Include="Depozit.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Factura.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FGestionarDepozit_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FisaMagazie1_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FisaMagazie_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFisaMagazieParam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFisaMagazieParam.Designer.cs">
+      <DependentUpon>frmFisaMagazieParam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdaugaProdus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdaugaProdus.Designer.cs">
+      <DependentUpon>frmAdaugaProdus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdaugaProdusCategorie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdaugaProdusCategorie.Designer.cs">
+      <DependentUpon>frmAdaugaProdusCategorie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAvizExped.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAvizExped.Designer.cs">
+      <DependentUpon>frmAvizExped.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBalanataStocuri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBalanataStocuri.Designer.cs">
+      <DependentUpon>frmBalanataStocuri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBonConsum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBonConsum.Designer.cs">
+      <DependentUpon>frmBonConsum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBonTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBonTransfer.Designer.cs">
+      <DependentUpon>frmBonTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDepozit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDepozit.Designer.cs">
+      <DependentUpon>frmDepozit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFactura.Designer.cs">
+      <DependentUpon>frmFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRaportFisaMagazie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRaportFisaMagazie.Designer.cs">
+      <DependentUpon>frmRaportFisaMagazie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGestionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionar.Designer.cs">
+      <DependentUpon>frmGestionar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaAvizExped.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaAvizExped.Designer.cs">
+      <DependentUpon>frmListaAvizExped.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaBonConsum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaBonConsum.Designer.cs">
+      <DependentUpon>frmListaBonConsum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaBonTransf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaBonTransf.Designer.cs">
+      <DependentUpon>frmListaBonTransf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaDepozite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaDepozite.Designer.cs">
+      <DependentUpon>frmListaDepozite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaFacturi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaFacturi.Designer.cs">
+      <DependentUpon>frmListaFacturi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaGestionari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaGestionari.Designer.cs">
+      <DependentUpon>frmListaGestionari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaNIR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaNIR.Designer.cs">
+      <DependentUpon>frmListaNIR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaParteneri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaParteneri.Designer.cs">
+      <DependentUpon>frmListaParteneri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaProduseRepartizate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaProduseRepartizate.Designer.cs">
+      <DependentUpon>frmListaProduseRepartizate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifAvixExped.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifAvixExped.Designer.cs">
+      <DependentUpon>frmModifAvixExped.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifBonConsum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifBonConsum.Designer.cs">
+      <DependentUpon>frmModifBonConsum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifBonTransf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifBonTransf.Designer.cs">
+      <DependentUpon>frmModifBonTransf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifFactura.Designer.cs">
+      <DependentUpon>frmModifFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifGestionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifGestionar.Designer.cs">
+      <DependentUpon>frmModifGestionar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificareDepozit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificareDepozit.Designer.cs">
+      <DependentUpon>frmModificareDepozit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifMarfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifMarfa.Designer.cs">
+      <DependentUpon>frmModifMarfa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifMaterial.Designer.cs">
+      <DependentUpon>frmModifMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifMP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifMP.Designer.cs">
+      <DependentUpon>frmModifMP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifNIR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifNIR.Designer.cs">
+      <DependentUpon>frmModifNIR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifPartener.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifPartener.Designer.cs">
+      <DependentUpon>frmModifPartener.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifPF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifPF.Designer.cs">
+      <DependentUpon>frmModifPF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifProdRep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifProdRep.Designer.cs">
+      <DependentUpon>frmModifProdRep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifProdus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifProdus.Designer.cs">
+      <DependentUpon>frmModifProdus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNIR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNIR.Designer.cs">
+      <DependentUpon>frmNIR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPartener.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPartener.Designer.cs">
+      <DependentUpon>frmPartener.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRaportBalanta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRaportBalanta.Designer.cs">
+      <DependentUpon>frmRaportBalanta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRepartizareProdus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRepartizareProdus.Designer.cs">
+      <DependentUpon>frmRepartizareProdus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStocCurent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStocCurent.Designer.cs">
+      <DependentUpon>frmStocCurent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FStatusDepozit_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gestionar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="frmIstoricTranzactiiProdus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIstoricTranzactiiProdus.Designer.cs">
+      <DependentUpon>frmIstoricTranzactiiProdus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfFirma.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Marfa.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Material.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MateriePrima.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="NIR.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Partener.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Produs.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProdusConsum.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProdusExpeditie.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProdusFinit.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProdusGestionat.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProdusTransfer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProdusTransfer.partial.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFisaMagazieParam.resx">
+      <DependentUpon>frmFisaMagazieParam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdaugaProdus.resx">
+      <DependentUpon>frmAdaugaProdus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdaugaProdusCategorie.resx">
+      <DependentUpon>frmAdaugaProdusCategorie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAvizExped.resx">
+      <DependentUpon>frmAvizExped.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBalanataStocuri.resx">
+      <DependentUpon>frmBalanataStocuri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBonConsum.resx">
+      <DependentUpon>frmBonConsum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBonTransfer.resx">
+      <DependentUpon>frmBonTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDepozit.resx">
+      <DependentUpon>frmDepozit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFactura.resx">
+      <DependentUpon>frmFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRaportFisaMagazie.resx">
+      <DependentUpon>frmRaportFisaMagazie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionar.resx">
+      <DependentUpon>frmGestionar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaAvizExped.resx">
+      <DependentUpon>frmListaAvizExped.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaBonConsum.resx">
+      <DependentUpon>frmListaBonConsum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaBonTransf.resx">
+      <DependentUpon>frmListaBonTransf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaDepozite.resx">
+      <DependentUpon>frmListaDepozite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaFacturi.resx">
+      <DependentUpon>frmListaFacturi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaGestionari.resx">
+      <DependentUpon>frmListaGestionari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaNIR.resx">
+      <DependentUpon>frmListaNIR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaParteneri.resx">
+      <DependentUpon>frmListaParteneri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaProduseRepartizate.resx">
+      <DependentUpon>frmListaProduseRepartizate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifAvixExped.resx">
+      <DependentUpon>frmModifAvixExped.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifBonConsum.resx">
+      <DependentUpon>frmModifBonConsum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifBonTransf.resx">
+      <DependentUpon>frmModifBonTransf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifFactura.resx">
+      <DependentUpon>frmModifFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifGestionar.resx">
+      <DependentUpon>frmModifGestionar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificareDepozit.resx">
+      <DependentUpon>frmModificareDepozit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifMarfa.resx">
+      <DependentUpon>frmModifMarfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifMaterial.resx">
+      <DependentUpon>frmModifMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifMP.resx">
+      <DependentUpon>frmModifMP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifNIR.resx">
+      <DependentUpon>frmModifNIR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifPartener.resx">
+      <DependentUpon>frmModifPartener.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifPF.resx">
+      <DependentUpon>frmModifPF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifProdRep.resx">
+      <DependentUpon>frmModifProdRep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifProdus.resx">
+      <DependentUpon>frmModifProdus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNIR.resx">
+      <DependentUpon>frmNIR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPartener.resx">
+      <DependentUpon>frmPartener.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRaportBalanta.resx">
+      <DependentUpon>frmRaportBalanta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRepartizareProdus.resx">
+      <DependentUpon>frmRepartizareProdus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStocCurent.resx">
+      <DependentUpon>frmStocCurent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIstoricTranzactiiProdus.resx">
+      <DependentUpon>frmIstoricTranzactiiProdus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Report1.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Report2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\AvizExpeditie.datasource" />
+    <None Include="Properties\DataSources\BalantaProdusDetaliat_Result.datasource" />
+    <None Include="Properties\DataSources\BalantaStocuri_Result.datasource" />
+    <None Include="Properties\DataSources\BonConsum.datasource" />
+    <None Include="Properties\DataSources\BonTransfer.datasource" />
+    <None Include="Properties\DataSources\ContinutFactura.datasource" />
+    <None Include="Properties\DataSources\ContinutNIR.datasource" />
+    <None Include="Properties\DataSources\Depozit.datasource" />
+    <None Include="Properties\DataSources\Factura.datasource" />
+    <None Include="Properties\DataSources\FisaMagazie1_Result.datasource" />
+    <None Include="Properties\DataSources\FisaMagazie_Result.datasource" />
+    <None Include="Properties\DataSources\FStatusDepozit_Result.datasource" />
+    <None Include="Properties\DataSources\Gestionar.datasource" />
+    <None Include="Properties\DataSources\InfFirma.datasource" />
+    <None Include="Properties\DataSources\Marfa.datasource" />
+    <None Include="Properties\DataSources\Material.datasource" />
+    <None Include="Properties\DataSources\MateriePrima.datasource" />
+    <None Include="Properties\DataSources\NIR.datasource" />
+    <None Include="Properties\DataSources\Partener.datasource" />
+    <None Include="Properties\DataSources\Produs.datasource" />
+    <None Include="Properties\DataSources\ProdusConsum.datasource" />
+    <None Include="Properties\DataSources\ProdusExpeditie.datasource" />
+    <None Include="Properties\DataSources\ProdusFinit.datasource" />
+    <None Include="Properties\DataSources\ProdusGestionat.datasource" />
+    <None Include="Properties\DataSources\ProdusTransfer.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil-edit-button-svgrepo-com.png" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

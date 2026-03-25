@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1be91e88796547c29de6d8e949999ef2" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="BD1Model.BonConsum" Width="1.5" PointX="3.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD1Model.BonTransfer" Width="1.5" PointX="6.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD1Model.ContinutFactura" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD1Model.ContinutNIR" Width="1.5" PointX="6" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD1Model.Depozit" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD1Model.Gestionar" Width="1.5" PointX="1.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD1Model.Marfa" Width="1.5" PointX="6.5" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD1Model.Material" Width="1.5" PointX="3" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD1Model.MateriePrima" Width="1.5" PointX="3" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD1Model.Partener" Width="1.5" PointX="1.5" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD1Model.Produs" Width="1.5" PointX="0.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD1Model.ProdusConsum" Width="1.5" PointX="6" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD1Model.ProdusExpeditie" Width="1.5" PointX="6" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD1Model.ProdusFinit" Width="1.5" PointX="3" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD1Model.ProdusGestionat" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD1Model.ProdusTransfer" Width="1.5" PointX="9" PointY="14.375" IsExpanded="true" />
+        <AssociationConnector Association="BD1Model.FK__BonConsum__Data__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="BD1Model.FK__ProdusCon__IdBon__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="BD1Model.FK__ProdusTra__IdBon__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="BD1Model.FK_BonTransfer_IdDepozitPredator" ManuallyRouted="false" />
+        <AssociationConnector Association="BD1Model.FK_BonTransfer_IdDepozitPrimitor" ManuallyRouted="false" />
+        <AssociationConnector Association="BD1Model.FK__ContinutF__IdPro__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="BD1Model.FK__ContinutN__IdPro__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="BD1Model.FK__Depozit__IdGesti__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="BD1Model.FK__ProdusGes__IdDep__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="BD1Model.FK_Marfa_Produs" ManuallyRouted="false" />
+        <AssociationConnector Association="BD1Model.FK_Material_Produs" ManuallyRouted="false" />
+        <AssociationConnector Association="BD1Model.FK_MateriePrima_Produs" ManuallyRouted="false" />
+        <AssociationConnector Association="BD1Model.FK__ProdusCon__IdPro__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="BD1Model.FK__ProdusExp__IdPro__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="BD1Model.FK__ProdusGes__IdPro__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="BD1Model.FK__ProdusTra__IdPro__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="BD1Model.FK_ProdusFinit_Produs" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BD1Model.NIR" Width="1.5" PointX="9" PointY="11.125" />
+        <AssociationConnector Association="BD1Model.FK__ContinutN__IdNIR__4D94879B" />
+        <AssociationConnector Association="BD1Model.FK__NIR__Data__49C3F6B7" />
+        <EntityTypeShape EntityType="BD1Model.AvizExpeditie" Width="1.5" PointX="9" PointY="18.125" />
+        <AssociationConnector Association="BD1Model.FK__AvizExpedi__Data__5165187F" />
+        <AssociationConnector Association="BD1Model.FK__ProdusExp__IdAvi__5441852A" />
+        <EntityTypeShape EntityType="BD1Model.Factura" Width="1.5" PointX="3.75" PointY="24.875" />
+        <AssociationConnector Association="BD1Model.FK_AvizExpeditie_Factura" />
+        <AssociationConnector Association="BD1Model.FK__ContinutF__IdFac__3D5E1FD2" />
+        <AssociationConnector Association="BD1Model.FK__NIR__IdFactura__4AB81AF0" />
+        <AssociationConnector Association="BD1Model.FK_Factura_PartenerClient" />
+        <AssociationConnector Association="BD1Model.FK_Factura_PartenerFurnizor" />
+        <EntityTypeShape EntityType="BD1Model.InfFirma" Width="1.5" PointX="10.375" PointY="4.625" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,2023 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BD1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AvizExpeditie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdDepozit" Type="int" />
+          <Property Name="Numar" Type="char" MaxLength="20" />
+          <Property Name="Data" Type="date" />
+          <Property Name="IdFactura" Type="int" />
+        </EntityType>
+        <EntityType Name="BonConsum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdDepozit" Type="int" />
+          <Property Name="IdProdus" Type="int" />
+          <Property Name="Numar" Type="char" MaxLength="20" />
+          <Property Name="Data" Type="date" />
+        </EntityType>
+        <EntityType Name="BonTransfer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdDepozitPredator" Type="int" />
+          <Property Name="Numar" Type="char" MaxLength="20" />
+          <Property Name="Data" Type="datetime2" Precision="3" />
+          <Property Name="IdDepozitPrimitor" Type="int" />
+        </EntityType>
+        <EntityType Name="ContinutFactura">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdFactura" Type="int" />
+          <Property Name="IdProdus" Type="int" />
+          <Property Name="Pret" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Cantitate" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="ContinutNIR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdNIR" Type="int" />
+          <Property Name="IdProdus" Type="int" />
+          <Property Name="Cantitate" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Depozit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGestionar" Type="int" />
+          <Property Name="Cod" Type="nvarchar" MaxLength="50" />
+          <Property Name="Denumire" Type="nvarchar" MaxLength="100" />
+          <Property Name="Adresa" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Factura">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Numar" Type="char" MaxLength="20" />
+          <Property Name="Serie" Type="char" MaxLength="20" />
+          <Property Name="Data" Type="date" />
+          <Property Name="Explicatii" Type="nvarchar" MaxLength="250" />
+          <Property Name="IdPartenerClient" Type="int" />
+          <Property Name="IdPartenerFurnizor" Type="int" />
+        </EntityType>
+        <EntityType Name="Gestionar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CNP" Type="char" MaxLength="13" />
+          <Property Name="Nume" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prenume" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="InfFirma">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Denumire" Type="nvarchar" MaxLength="100" />
+          <Property Name="CUI" Type="nvarchar" MaxLength="20" />
+          <Property Name="Adresa" Type="nvarchar" MaxLength="200" />
+          <Property Name="ContBancar" Type="nvarchar" MaxLength="50" />
+          <Property Name="DataStocInitial" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Marfa">
+          <Key>
+            <PropertyRef Name="IdProdus" />
+          </Key>
+          <Property Name="IdProdus" Type="int" Nullable="false" />
+          <Property Name="PretStandardMf" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="IdProdus" />
+          </Key>
+          <Property Name="IdProdus" Type="int" Nullable="false" />
+          <Property Name="PretEstimatMat" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="MateriePrima">
+          <Key>
+            <PropertyRef Name="IdProdus" />
+          </Key>
+          <Property Name="IdProdus" Type="int" Nullable="false" />
+          <Property Name="PretEstimatMP" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="NIR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdDepozit" Type="int" />
+          <Property Name="IdFactura" Type="int" />
+          <Property Name="Numar" Type="char" MaxLength="20" />
+          <Property Name="Data" Type="date" />
+        </EntityType>
+        <EntityType Name="Partener">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUI" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="TipPartener" Type="nvarchar" MaxLength="50" />
+          <Property Name="Denumire" Type="nvarchar" MaxLength="100" />
+          <Property Name="Localitate" Type="nvarchar" MaxLength="100" />
+          <Property Name="Adresa" Type="nvarchar" MaxLength="100" />
+          <Property Name="ContBancar" Type="nvarchar" MaxLength="100" />
+          <Property Name="Telefon" Type="int" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Produs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cod" Type="int" />
+          <Property Name="Denumire" Type="nvarchar" MaxLength="100" />
+          <Property Name="UnitateDeMasura" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ProdusConsum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdBonConsum" Type="int" />
+          <Property Name="IdProdus" Type="int" />
+          <Property Name="Cantitate" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="ProdusExpeditie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAvizExpeditie" Type="int" />
+          <Property Name="IdProdus" Type="int" />
+          <Property Name="Cantitate" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="ProdusFinit">
+          <Key>
+            <PropertyRef Name="IdProdus" />
+          </Key>
+          <Property Name="IdProdus" Type="int" Nullable="false" />
+          <Property Name="CostStandard" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="ProdusGestionat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdDepozit" Type="int" />
+          <Property Name="IdProdus" Type="int" />
+          <Property Name="StocInitial" Type="int" />
+          <Property Name="Pret" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="ProdusTransfer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdBonTransfer" Type="int" />
+          <Property Name="IdProdus" Type="int" />
+          <Property Name="Cantitate" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <Association Name="FK__AvizExpedi__Data__5165187F">
+          <End Role="Depozit" Type="Self.Depozit" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AvizExpeditie" Type="Self.AvizExpeditie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Depozit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AvizExpeditie">
+              <PropertyRef Name="IdDepozit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BonConsum__Data__5EBF139D">
+          <End Role="Depozit" Type="Self.Depozit" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BonConsum" Type="Self.BonConsum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Depozit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BonConsum">
+              <PropertyRef Name="IdDepozit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ContinutF__IdFac__3D5E1FD2">
+          <End Role="Factura" Type="Self.Factura" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ContinutFactura" Type="Self.ContinutFactura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factura">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContinutFactura">
+              <PropertyRef Name="IdFactura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ContinutF__IdPro__3E52440B">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ContinutFactura" Type="Self.ContinutFactura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContinutFactura">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ContinutN__IdNIR__4D94879B">
+          <End Role="NIR" Type="Self.NIR" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ContinutNIR" Type="Self.ContinutNIR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NIR">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContinutNIR">
+              <PropertyRef Name="IdNIR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ContinutN__IdPro__4E88ABD4">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ContinutNIR" Type="Self.ContinutNIR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContinutNIR">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Depozit__IdGesti__02084FDA">
+          <End Role="Gestionar" Type="Self.Gestionar" Multiplicity="0..1" />
+          <End Role="Depozit" Type="Self.Depozit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gestionar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Depozit">
+              <PropertyRef Name="IdGestionar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NIR__Data__49C3F6B7">
+          <End Role="Depozit" Type="Self.Depozit" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NIR" Type="Self.NIR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Depozit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NIR">
+              <PropertyRef Name="IdDepozit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NIR__IdFactura__4AB81AF0">
+          <End Role="Factura" Type="Self.Factura" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NIR" Type="Self.NIR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factura">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NIR">
+              <PropertyRef Name="IdFactura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProdusCon__IdBon__619B8048">
+          <End Role="BonConsum" Type="Self.BonConsum" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProdusConsum" Type="Self.ProdusConsum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BonConsum">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProdusConsum">
+              <PropertyRef Name="IdBonConsum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProdusCon__IdPro__628FA481">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProdusConsum" Type="Self.ProdusConsum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProdusConsum">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProdusExp__IdAvi__5441852A">
+          <End Role="AvizExpeditie" Type="Self.AvizExpeditie" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProdusExpeditie" Type="Self.ProdusExpeditie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AvizExpeditie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProdusExpeditie">
+              <PropertyRef Name="IdAvizExpeditie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProdusExp__IdPro__5535A963">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProdusExpeditie" Type="Self.ProdusExpeditie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProdusExpeditie">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProdusGes__IdDep__45F365D3">
+          <End Role="Depozit" Type="Self.Depozit" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProdusGestionat" Type="Self.ProdusGestionat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Depozit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProdusGestionat">
+              <PropertyRef Name="IdDepozit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProdusGes__IdPro__46E78A0C">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProdusGestionat" Type="Self.ProdusGestionat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProdusGestionat">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProdusTra__IdBon__5AEE82B9">
+          <End Role="BonTransfer" Type="Self.BonTransfer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProdusTransfer" Type="Self.ProdusTransfer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BonTransfer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProdusTransfer">
+              <PropertyRef Name="IdBonTransfer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProdusTra__IdPro__5BE2A6F2">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProdusTransfer" Type="Self.ProdusTransfer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProdusTransfer">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AvizExpeditie_Factura">
+          <End Role="Factura" Type="Self.Factura" Multiplicity="0..1" />
+          <End Role="AvizExpeditie" Type="Self.AvizExpeditie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factura">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AvizExpeditie">
+              <PropertyRef Name="IdFactura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BonTransfer_IdDepozitPredator">
+          <End Role="Depozit" Type="Self.Depozit" Multiplicity="0..1" />
+          <End Role="BonTransfer" Type="Self.BonTransfer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Depozit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BonTransfer">
+              <PropertyRef Name="IdDepozitPredator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BonTransfer_IdDepozitPrimitor">
+          <End Role="Depozit" Type="Self.Depozit" Multiplicity="0..1" />
+          <End Role="BonTransfer" Type="Self.BonTransfer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Depozit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BonTransfer">
+              <PropertyRef Name="IdDepozitPrimitor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factura_PartenerClient">
+          <End Role="Partener" Type="Self.Partener" Multiplicity="0..1" />
+          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partener">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Factura">
+              <PropertyRef Name="IdPartenerClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factura_PartenerFurnizor">
+          <End Role="Partener" Type="Self.Partener" Multiplicity="0..1" />
+          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partener">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Factura">
+              <PropertyRef Name="IdPartenerFurnizor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Marfa_Produs">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Marfa" Type="Self.Marfa" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Marfa">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_Produs">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Material" Type="Self.Material" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MateriePrima_Produs">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MateriePrima" Type="Self.MateriePrima" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MateriePrima">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProdusFinit_Produs">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProdusFinit" Type="Self.ProdusFinit" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProdusFinit">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ActualizareStocInitialSiPretLaFinalAn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ActualizeazaStocInitialSiPret" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="BalantaProdusDetaliat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DataInitial" Type="date" Mode="In" />
+          <Parameter Name="DataFinal" Type="date" Mode="In" />
+          <Parameter Name="IdDepozit" Type="int" Mode="In" />
+          <Parameter Name="IdProdus" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="DataTranzactie" Type="datetime2" Precision="3" />
+                <Property Name="TipTranzactie" Type="varchar" MaxLength="18" Nullable="false" />
+                <Property Name="NumarDocument" Type="char" MaxLength="20" />
+                <Property Name="Cantitate" Type="decimal" Precision="10" Scale="2" />
+                <Property Name="PretUnitar" Type="decimal" Precision="18" Scale="4" />
+                <Property Name="Valoare" Type="decimal" Precision="21" Scale="4" />
+                <Property Name="Sens" Type="varchar" MaxLength="7" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="BalantaStocuri" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DataInitial" Type="date" Mode="In" />
+          <Parameter Name="DataFinal" Type="date" Mode="In" />
+          <Parameter Name="IdDepozit" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="CodProdus" Type="int" />
+                <Property Name="NumeProdus" Type="nvarchar" MaxLength="100" />
+                <Property Name="StocInitial" Type="int" Nullable="false" />
+                <Property Name="ValoareInitiala" Type="decimal" Precision="21" Scale="2" Nullable="false" />
+                <Property Name="Intrari" Type="decimal" Precision="38" Scale="2" />
+                <Property Name="ValoareIntrari" Type="decimal" Precision="38" Scale="4" />
+                <Property Name="Iesiri" Type="decimal" Precision="38" Scale="2" />
+                <Property Name="ValoareIesiri" Type="decimal" Precision="38" Scale="4" />
+                <Property Name="Ajustari" Type="numeric" Precision="2" Scale="2" Nullable="false" />
+                <Property Name="StocFinal" Type="decimal" Precision="38" Scale="2" />
+                <Property Name="ValoareFinala" Type="decimal" Precision="38" Scale="4" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="CalculCMPTransfer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
+          <Parameter Name="IdProdus" Type="int" Mode="In" />
+          <Parameter Name="IdDepozit" Type="int" Mode="In" />
+          <Parameter Name="Data" Type="datetime2" Mode="In" />
+        </Function>
+        <Function Name="CalculValoareIesireCMPTV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdProdus" Type="int" Mode="In" />
+          <Parameter Name="IdDepozit" Type="int" Mode="In" />
+          <Parameter Name="DataIesire" Type="datetime2" Mode="In" />
+          <Parameter Name="Cantitate" Type="decimal" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="IdProdus" Type="int" />
+                <Property Name="IdDepozit" Type="int" />
+                <Property Name="DataIesirii" Type="datetime2" Precision="3" />
+                <Property Name="CMP" Type="decimal" Precision="18" Scale="4" />
+                <Property Name="Cantitate" Type="decimal" Precision="18" Scale="4" />
+                <Property Name="ValoareIesire" Type="decimal" Precision="18" Scale="4" />
+                <Property Name="StocCurent" Type="decimal" Precision="18" Scale="4" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FGestionarDepozit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="GestionarId" Type="int" Nullable="false" />
+                <Property Name="Nume" Type="nvarchar" MaxLength="50" />
+                <Property Name="Prenume" Type="nvarchar" MaxLength="50" />
+                <Property Name="DenumiriDepozite" Type="nvarchar" MaxLength="4000" />
+                <Property Name="NrDepozite" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FisaMagazie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DataInitial" Type="date" Mode="In" />
+          <Parameter Name="DataFinal" Type="date" Mode="In" />
+          <Parameter Name="IdDepozit" Type="int" Mode="In" />
+          <Parameter Name="IdProdus" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="NrCrt" Type="int" />
+                <Property Name="DataTranzactie" Type="date" />
+                <Property Name="NumarDocument" Type="nvarchar" MaxLength="50" />
+                <Property Name="TipDocument" Type="nvarchar" MaxLength="50" />
+                <Property Name="CantitateIntrare" Type="decimal" Precision="18" Scale="2" />
+                <Property Name="CantitateIesire" Type="decimal" Precision="18" Scale="2" />
+                <Property Name="Stoc" Type="decimal" Precision="18" Scale="2" />
+                <Property Name="PretUnitar" Type="decimal" Precision="18" Scale="4" />
+                <Property Name="CodProdus" Type="nvarchar" MaxLength="50" />
+                <Property Name="UnitateDeMasura" Type="nvarchar" MaxLength="50" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FisaMagazie1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DataInitial" Type="date" Mode="In" />
+          <Parameter Name="DataFinal" Type="date" Mode="In" />
+          <Parameter Name="IdDepozit" Type="int" Mode="In" />
+          <Parameter Name="IdProdus" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="NrCrt" Type="int" />
+                <Property Name="DataTranzactie" Type="date" />
+                <Property Name="NumarDocument" Type="nvarchar" MaxLength="50" />
+                <Property Name="TipDocument" Type="nvarchar" MaxLength="50" />
+                <Property Name="CantitateIntrare" Type="decimal" Precision="18" Scale="2" />
+                <Property Name="CantitateIesire" Type="decimal" Precision="18" Scale="2" />
+                <Property Name="Stoc" Type="decimal" Precision="18" Scale="2" />
+                <Property Name="PretUnitar" Type="decimal" Precision="18" Scale="4" />
+                <Property Name="CodProdus" Type="nvarchar" MaxLength="50" />
+                <Property Name="UnitateDeMasura" Type="nvarchar" MaxLength="50" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FStatusDepozit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Cod" Type="nvarchar" MaxLength="50" />
+                <Property Name="Denumire" Type="nvarchar" MaxLength="100" />
+                <Property Name="Status" Type="varchar" MaxLength="11" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="StocCurentTB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdProdus" Type="int" Mode="In" />
+          <Parameter Name="IdDepozit" Type="int" Mode="In" />
+          <Parameter Name="Data" Type="date" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="StocCurent" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <EntityContainer Name="BD1ModelStoreContainer">
+          <EntitySet Name="AvizExpeditie" EntityType="Self.AvizExpeditie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BonConsum" EntityType="Self.BonConsum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BonTransfer" EntityType="Self.BonTransfer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContinutFactura" EntityType="Self.ContinutFactura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContinutNIR" EntityType="Self.ContinutNIR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Depozit" EntityType="Self.Depozit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Factura" EntityType="Self.Factura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gestionar" EntityType="Self.Gestionar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfFirma" EntityType="Self.InfFirma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Marfa" EntityType="Self.Marfa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MateriePrima" EntityType="Self.MateriePrima" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NIR" EntityType="Self.NIR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Partener" EntityType="Self.Partener" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produs" EntityType="Self.Produs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProdusConsum" EntityType="Self.ProdusConsum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProdusExpeditie" EntityType="Self.ProdusExpeditie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProdusFinit" EntityType="Self.ProdusFinit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProdusGestionat" EntityType="Self.ProdusGestionat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProdusTransfer" EntityType="Self.ProdusTransfer" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__AvizExpedi__Data__5165187F" Association="Self.FK__AvizExpedi__Data__5165187F">
+            <End Role="Depozit" EntitySet="Depozit" />
+            <End Role="AvizExpeditie" EntitySet="AvizExpeditie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BonConsum__Data__5EBF139D" Association="Self.FK__BonConsum__Data__5EBF139D">
+            <End Role="Depozit" EntitySet="Depozit" />
+            <End Role="BonConsum" EntitySet="BonConsum" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ContinutF__IdFac__3D5E1FD2" Association="Self.FK__ContinutF__IdFac__3D5E1FD2">
+            <End Role="Factura" EntitySet="Factura" />
+            <End Role="ContinutFactura" EntitySet="ContinutFactura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ContinutF__IdPro__3E52440B" Association="Self.FK__ContinutF__IdPro__3E52440B">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="ContinutFactura" EntitySet="ContinutFactura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ContinutN__IdNIR__4D94879B" Association="Self.FK__ContinutN__IdNIR__4D94879B">
+            <End Role="NIR" EntitySet="NIR" />
+            <End Role="ContinutNIR" EntitySet="ContinutNIR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ContinutN__IdPro__4E88ABD4" Association="Self.FK__ContinutN__IdPro__4E88ABD4">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="ContinutNIR" EntitySet="ContinutNIR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Depozit__IdGesti__02084FDA" Association="Self.FK__Depozit__IdGesti__02084FDA">
+            <End Role="Gestionar" EntitySet="Gestionar" />
+            <End Role="Depozit" EntitySet="Depozit" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NIR__Data__49C3F6B7" Association="Self.FK__NIR__Data__49C3F6B7">
+            <End Role="Depozit" EntitySet="Depozit" />
+            <End Role="NIR" EntitySet="NIR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NIR__IdFactura__4AB81AF0" Association="Self.FK__NIR__IdFactura__4AB81AF0">
+            <End Role="Factura" EntitySet="Factura" />
+            <End Role="NIR" EntitySet="NIR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProdusCon__IdBon__619B8048" Association="Self.FK__ProdusCon__IdBon__619B8048">
+            <End Role="BonConsum" EntitySet="BonConsum" />
+            <End Role="ProdusConsum" EntitySet="ProdusConsum" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProdusCon__IdPro__628FA481" Association="Self.FK__ProdusCon__IdPro__628FA481">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="ProdusConsum" EntitySet="ProdusConsum" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProdusExp__IdAvi__5441852A" Association="Self.FK__ProdusExp__IdAvi__5441852A">
+            <End Role="AvizExpeditie" EntitySet="AvizExpeditie" />
+            <End Role="ProdusExpeditie" EntitySet="ProdusExpeditie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProdusExp__IdPro__5535A963" Association="Self.FK__ProdusExp__IdPro__5535A963">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="ProdusExpeditie" EntitySet="ProdusExpeditie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProdusGes__IdDep__45F365D3" Association="Self.FK__ProdusGes__IdDep__45F365D3">
+            <End Role="Depozit" EntitySet="Depozit" />
+            <End Role="ProdusGestionat" EntitySet="ProdusGestionat" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProdusGes__IdPro__46E78A0C" Association="Self.FK__ProdusGes__IdPro__46E78A0C">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="ProdusGestionat" EntitySet="ProdusGestionat" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProdusTra__IdBon__5AEE82B9" Association="Self.FK__ProdusTra__IdBon__5AEE82B9">
+            <End Role="BonTransfer" EntitySet="BonTransfer" />
+            <End Role="ProdusTransfer" EntitySet="ProdusTransfer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProdusTra__IdPro__5BE2A6F2" Association="Self.FK__ProdusTra__IdPro__5BE2A6F2">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="ProdusTransfer" EntitySet="ProdusTransfer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AvizExpeditie_Factura" Association="Self.FK_AvizExpeditie_Factura">
+            <End Role="Factura" EntitySet="Factura" />
+            <End Role="AvizExpeditie" EntitySet="AvizExpeditie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BonTransfer_IdDepozitPredator" Association="Self.FK_BonTransfer_IdDepozitPredator">
+            <End Role="Depozit" EntitySet="Depozit" />
+            <End Role="BonTransfer" EntitySet="BonTransfer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BonTransfer_IdDepozitPrimitor" Association="Self.FK_BonTransfer_IdDepozitPrimitor">
+            <End Role="Depozit" EntitySet="Depozit" />
+            <End Role="BonTransfer" EntitySet="BonTransfer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factura_PartenerClient" Association="Self.FK_Factura_PartenerClient">
+            <End Role="Partener" EntitySet="Partener" />
+            <End Role="Factura" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factura_PartenerFurnizor" Association="Self.FK_Factura_PartenerFurnizor">
+            <End Role="Partener" EntitySet="Partener" />
+            <End Role="Factura" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Marfa_Produs" Association="Self.FK_Marfa_Produs">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="Marfa" EntitySet="Marfa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_Produs" Association="Self.FK_Material_Produs">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MateriePrima_Produs" Association="Self.FK_MateriePrima_Produs">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="MateriePrima" EntitySet="MateriePrima" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProdusFinit_Produs" Association="Self.FK_ProdusFinit_Produs">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="ProdusFinit" EntitySet="ProdusFinit" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BD1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="FStatusDepozit_Result">
+          <Property Name="Cod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Denumire" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="BonConsum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdDepozit" Type="Int32" />
+          <Property Name="IdProdus" Type="Int32" />
+          <Property Name="Numar" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Data" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Depozit" Relationship="Self.FK__BonConsum__Data__5EBF139D" FromRole="BonConsum" ToRole="Depozit" />
+          <NavigationProperty Name="ProdusConsum" Relationship="Self.FK__ProdusCon__IdBon__619B8048" FromRole="BonConsum" ToRole="ProdusConsum" />
+        </EntityType>
+        <EntityType Name="BonTransfer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdDepozitPredator" Type="Int32" />
+          <Property Name="Numar" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Data" Type="DateTime" Precision="3" />
+          <Property Name="IdDepozitPrimitor" Type="Int32" />
+          <NavigationProperty Name="ProdusTransfer" Relationship="Self.FK__ProdusTra__IdBon__5AEE82B9" FromRole="BonTransfer" ToRole="ProdusTransfer" />
+          <NavigationProperty Name="Depozit" Relationship="Self.FK_BonTransfer_IdDepozitPredator" FromRole="BonTransfer" ToRole="Depozit" />
+          <NavigationProperty Name="Depozit1" Relationship="Self.FK_BonTransfer_IdDepozitPrimitor" FromRole="BonTransfer" ToRole="Depozit" />
+        </EntityType>
+        <EntityType Name="ContinutFactura">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdFactura" Type="Int32" />
+          <Property Name="IdProdus" Type="Int32" />
+          <Property Name="Pret" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Cantitate" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Produs" Relationship="Self.FK__ContinutF__IdPro__3E52440B" FromRole="ContinutFactura" ToRole="Produs" />
+          <NavigationProperty Name="Factura" Relationship="BD1Model.FK__ContinutF__IdFac__3D5E1FD2" FromRole="ContinutFactura" ToRole="Factura" />
+        </EntityType>
+        <EntityType Name="ContinutNIR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdNIR" Type="Int32" />
+          <Property Name="IdProdus" Type="Int32" />
+          <Property Name="Cantitate" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Produs" Relationship="Self.FK__ContinutN__IdPro__4E88ABD4" FromRole="ContinutNIR" ToRole="Produs" />
+          <NavigationProperty Name="NIR" Relationship="BD1Model.FK__ContinutN__IdNIR__4D94879B" FromRole="ContinutNIR" ToRole="NIR" />
+        </EntityType>
+        <EntityType Name="Depozit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGestionar" Type="Int32" />
+          <Property Name="Cod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Denumire" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BonConsum" Relationship="Self.FK__BonConsum__Data__5EBF139D" FromRole="Depozit" ToRole="BonConsum" />
+          <NavigationProperty Name="BonTransfer" Relationship="Self.FK_BonTransfer_IdDepozitPredator" FromRole="Depozit" ToRole="BonTransfer" />
+          <NavigationProperty Name="BonTransfer1" Relationship="Self.FK_BonTransfer_IdDepozitPrimitor" FromRole="Depozit" ToRole="BonTransfer" />
+          <NavigationProperty Name="Gestionar" Relationship="Self.FK__Depozit__IdGesti__02084FDA" FromRole="Depozit" ToRole="Gestionar" />
+          <NavigationProperty Name="ProdusGestionat" Relationship="Self.FK__ProdusGes__IdDep__45F365D3" FromRole="Depozit" ToRole="ProdusGestionat" />
+          <NavigationProperty Name="NIR" Relationship="BD1Model.FK__NIR__Data__49C3F6B7" FromRole="Depozit" ToRole="NIR" />
+          <NavigationProperty Name="AvizExpeditie" Relationship="BD1Model.FK__AvizExpedi__Data__5165187F" FromRole="Depozit" ToRole="AvizExpeditie" />
+        </EntityType>
+        <EntityType Name="Gestionar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CNP" Type="String" MaxLength="13" FixedLength="true" Unicode="false" />
+          <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prenume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Depozit" Relationship="Self.FK__Depozit__IdGesti__02084FDA" FromRole="Gestionar" ToRole="Depozit" />
+        </EntityType>
+        <EntityType Name="Marfa">
+          <Key>
+            <PropertyRef Name="IdProdus" />
+          </Key>
+          <Property Name="IdProdus" Type="Int32" Nullable="false" />
+          <Property Name="PretStandardMf" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Produs" Relationship="Self.FK_Marfa_Produs" FromRole="Marfa" ToRole="Produs" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="IdProdus" />
+          </Key>
+          <Property Name="IdProdus" Type="Int32" Nullable="false" />
+          <Property Name="PretEstimatMat" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Produs" Relationship="Self.FK_Material_Produs" FromRole="Material" ToRole="Produs" />
+        </EntityType>
+        <EntityType Name="MateriePrima">
+          <Key>
+            <PropertyRef Name="IdProdus" />
+          </Key>
+          <Property Name="IdProdus" Type="Int32" Nullable="false" />
+          <Property Name="PretEstimatMP" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Produs" Relationship="Self.FK_MateriePrima_Produs" FromRole="MateriePrima" ToRole="Produs" />
+        </EntityType>
+        <EntityType Name="Partener">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CUI" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TipPartener" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Denumire" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Localitate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ContBancar" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="Int32" />
+          <Property Name="Mail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Factura" Relationship="BD1Model.FK_Factura_PartenerClient" FromRole="Partener" ToRole="Factura" />
+          <NavigationProperty Name="Factura1" Relationship="BD1Model.FK_Factura_PartenerFurnizor" FromRole="Partener" ToRole="Factura" />
+        </EntityType>
+        <EntityType Name="Produs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cod" Type="Int32" />
+          <Property Name="Denumire" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UnitateDeMasura" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ContinutFactura" Relationship="Self.FK__ContinutF__IdPro__3E52440B" FromRole="Produs" ToRole="ContinutFactura" />
+          <NavigationProperty Name="ContinutNIR" Relationship="Self.FK__ContinutN__IdPro__4E88ABD4" FromRole="Produs" ToRole="ContinutNIR" />
+          <NavigationProperty Name="Marfa" Relationship="Self.FK_Marfa_Produs" FromRole="Produs" ToRole="Marfa" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_Material_Produs" FromRole="Produs" ToRole="Material" />
+          <NavigationProperty Name="MateriePrima" Relationship="Self.FK_MateriePrima_Produs" FromRole="Produs" ToRole="MateriePrima" />
+          <NavigationProperty Name="ProdusConsum" Relationship="Self.FK__ProdusCon__IdPro__628FA481" FromRole="Produs" ToRole="ProdusConsum" />
+          <NavigationProperty Name="ProdusExpeditie" Relationship="Self.FK__ProdusExp__IdPro__5535A963" FromRole="Produs" ToRole="ProdusExpeditie" />
+          <NavigationProperty Name="ProdusGestionat" Relationship="Self.FK__ProdusGes__IdPro__46E78A0C" FromRole="Produs" ToRole="ProdusGestionat" />
+          <NavigationProperty Name="ProdusTransfer" Relationship="Self.FK__ProdusTra__IdPro__5BE2A6F2" FromRole="Produs" ToRole="ProdusTransfer" />
+          <NavigationProperty Name="ProdusFinit" Relationship="Self.FK_ProdusFinit_Produs" FromRole="Produs" ToRole="ProdusFinit" />
+        </EntityType>
+        <EntityType Name="ProdusConsum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdBonConsum" Type="Int32" />
+          <Property Name="IdProdus" Type="Int32" />
+          <Property Name="Cantitate" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="BonConsum" Relationship="Self.FK__ProdusCon__IdBon__619B8048" FromRole="ProdusConsum" ToRole="BonConsum" />
+          <NavigationProperty Name="Produs" Relationship="Self.FK__ProdusCon__IdPro__628FA481" FromRole="ProdusConsum" ToRole="Produs" />
+        </EntityType>
+        <EntityType Name="ProdusExpeditie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAvizExpeditie" Type="Int32" />
+          <Property Name="IdProdus" Type="Int32" />
+          <Property Name="Cantitate" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Produs" Relationship="Self.FK__ProdusExp__IdPro__5535A963" FromRole="ProdusExpeditie" ToRole="Produs" />
+          <NavigationProperty Name="AvizExpeditie" Relationship="BD1Model.FK__ProdusExp__IdAvi__5441852A" FromRole="ProdusExpeditie" ToRole="AvizExpeditie" />
+        </EntityType>
+        <EntityType Name="ProdusFinit">
+          <Key>
+            <PropertyRef Name="IdProdus" />
+          </Key>
+          <Property Name="IdProdus" Type="Int32" Nullable="false" />
+          <Property Name="CostStandard" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Produs" Relationship="Self.FK_ProdusFinit_Produs" FromRole="ProdusFinit" ToRole="Produs" />
+        </EntityType>
+        <EntityType Name="ProdusGestionat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdDepozit" Type="Int32" />
+          <Property Name="IdProdus" Type="Int32" />
+          <Property Name="StocInitial" Type="Int32" />
+          <Property Name="Pret" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Depozit" Relationship="Self.FK__ProdusGes__IdDep__45F365D3" FromRole="ProdusGestionat" ToRole="Depozit" />
+          <NavigationProperty Name="Produs" Relationship="Self.FK__ProdusGes__IdPro__46E78A0C" FromRole="ProdusGestionat" ToRole="Produs" />
+        </EntityType>
+        <EntityType Name="ProdusTransfer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdBonTransfer" Type="Int32" />
+          <Property Name="IdProdus" Type="Int32" />
+          <Property Name="Cantitate" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="BonTransfer" Relationship="Self.FK__ProdusTra__IdBon__5AEE82B9" FromRole="ProdusTransfer" ToRole="BonTransfer" />
+          <NavigationProperty Name="Produs" Relationship="Self.FK__ProdusTra__IdPro__5BE2A6F2" FromRole="ProdusTransfer" ToRole="Produs" />
+        </EntityType>
+        <Association Name="FK__BonConsum__Data__5EBF139D">
+          <End Role="Depozit" Type="Self.Depozit" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BonConsum" Type="Self.BonConsum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Depozit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BonConsum">
+              <PropertyRef Name="IdDepozit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProdusCon__IdBon__619B8048">
+          <End Role="BonConsum" Type="Self.BonConsum" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProdusConsum" Type="Self.ProdusConsum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BonConsum">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProdusConsum">
+              <PropertyRef Name="IdBonConsum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProdusTra__IdBon__5AEE82B9">
+          <End Role="BonTransfer" Type="Self.BonTransfer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProdusTransfer" Type="Self.ProdusTransfer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BonTransfer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProdusTransfer">
+              <PropertyRef Name="IdBonTransfer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BonTransfer_IdDepozitPredator">
+          <End Role="Depozit" Type="Self.Depozit" Multiplicity="0..1" />
+          <End Role="BonTransfer" Type="Self.BonTransfer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Depozit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BonTransfer">
+              <PropertyRef Name="IdDepozitPredator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BonTransfer_IdDepozitPrimitor">
+          <End Role="Depozit" Type="Self.Depozit" Multiplicity="0..1" />
+          <End Role="BonTransfer" Type="Self.BonTransfer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Depozit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BonTransfer">
+              <PropertyRef Name="IdDepozitPrimitor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ContinutF__IdPro__3E52440B">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ContinutFactura" Type="Self.ContinutFactura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContinutFactura">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ContinutN__IdPro__4E88ABD4">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ContinutNIR" Type="Self.ContinutNIR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContinutNIR">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Depozit__IdGesti__02084FDA">
+          <End Role="Gestionar" Type="Self.Gestionar" Multiplicity="0..1" />
+          <End Role="Depozit" Type="Self.Depozit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gestionar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Depozit">
+              <PropertyRef Name="IdGestionar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProdusGes__IdDep__45F365D3">
+          <End Role="Depozit" Type="Self.Depozit" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProdusGestionat" Type="Self.ProdusGestionat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Depozit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProdusGestionat">
+              <PropertyRef Name="IdDepozit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Marfa_Produs">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Marfa" Type="Self.Marfa" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Marfa">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_Produs">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Material" Type="Self.Material" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MateriePrima_Produs">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MateriePrima" Type="Self.MateriePrima" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MateriePrima">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProdusCon__IdPro__628FA481">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProdusConsum" Type="Self.ProdusConsum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProdusConsum">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProdusExp__IdPro__5535A963">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProdusExpeditie" Type="Self.ProdusExpeditie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProdusExpeditie">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProdusGes__IdPro__46E78A0C">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProdusGestionat" Type="Self.ProdusGestionat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProdusGestionat">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProdusTra__IdPro__5BE2A6F2">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProdusTransfer" Type="Self.ProdusTransfer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProdusTransfer">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProdusFinit_Produs">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProdusFinit" Type="Self.ProdusFinit" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProdusFinit">
+              <PropertyRef Name="IdProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BD1Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BonConsum" EntityType="Self.BonConsum" />
+          <EntitySet Name="BonTransfer" EntityType="Self.BonTransfer" />
+          <EntitySet Name="ContinutFactura" EntityType="Self.ContinutFactura" />
+          <EntitySet Name="ContinutNIR" EntityType="Self.ContinutNIR" />
+          <EntitySet Name="Depozit" EntityType="Self.Depozit" />
+          <EntitySet Name="Gestionar" EntityType="Self.Gestionar" />
+          <EntitySet Name="Marfa" EntityType="Self.Marfa" />
+          <EntitySet Name="Material" EntityType="Self.Material" />
+          <EntitySet Name="MateriePrima" EntityType="Self.MateriePrima" />
+          <EntitySet Name="Partener" EntityType="Self.Partener" />
+          <EntitySet Name="Produs" EntityType="Self.Produs" />
+          <EntitySet Name="ProdusConsum" EntityType="Self.ProdusConsum" />
+          <EntitySet Name="ProdusExpeditie" EntityType="Self.ProdusExpeditie" />
+          <EntitySet Name="ProdusFinit" EntityType="Self.ProdusFinit" />
+          <EntitySet Name="ProdusGestionat" EntityType="Self.ProdusGestionat" />
+          <EntitySet Name="ProdusTransfer" EntityType="Self.ProdusTransfer" />
+          <AssociationSet Name="FK__BonConsum__Data__5EBF139D" Association="Self.FK__BonConsum__Data__5EBF139D">
+            <End Role="Depozit" EntitySet="Depozit" />
+            <End Role="BonConsum" EntitySet="BonConsum" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProdusCon__IdBon__619B8048" Association="Self.FK__ProdusCon__IdBon__619B8048">
+            <End Role="BonConsum" EntitySet="BonConsum" />
+            <End Role="ProdusConsum" EntitySet="ProdusConsum" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProdusTra__IdBon__5AEE82B9" Association="Self.FK__ProdusTra__IdBon__5AEE82B9">
+            <End Role="BonTransfer" EntitySet="BonTransfer" />
+            <End Role="ProdusTransfer" EntitySet="ProdusTransfer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BonTransfer_IdDepozitPredator" Association="Self.FK_BonTransfer_IdDepozitPredator">
+            <End Role="Depozit" EntitySet="Depozit" />
+            <End Role="BonTransfer" EntitySet="BonTransfer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BonTransfer_IdDepozitPrimitor" Association="Self.FK_BonTransfer_IdDepozitPrimitor">
+            <End Role="Depozit" EntitySet="Depozit" />
+            <End Role="BonTransfer" EntitySet="BonTransfer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ContinutF__IdPro__3E52440B" Association="Self.FK__ContinutF__IdPro__3E52440B">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="ContinutFactura" EntitySet="ContinutFactura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ContinutN__IdPro__4E88ABD4" Association="Self.FK__ContinutN__IdPro__4E88ABD4">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="ContinutNIR" EntitySet="ContinutNIR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Depozit__IdGesti__02084FDA" Association="Self.FK__Depozit__IdGesti__02084FDA">
+            <End Role="Gestionar" EntitySet="Gestionar" />
+            <End Role="Depozit" EntitySet="Depozit" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProdusGes__IdDep__45F365D3" Association="Self.FK__ProdusGes__IdDep__45F365D3">
+            <End Role="Depozit" EntitySet="Depozit" />
+            <End Role="ProdusGestionat" EntitySet="ProdusGestionat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Marfa_Produs" Association="Self.FK_Marfa_Produs">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="Marfa" EntitySet="Marfa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_Produs" Association="Self.FK_Material_Produs">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MateriePrima_Produs" Association="Self.FK_MateriePrima_Produs">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="MateriePrima" EntitySet="MateriePrima" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProdusCon__IdPro__628FA481" Association="Self.FK__ProdusCon__IdPro__628FA481">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="ProdusConsum" EntitySet="ProdusConsum" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProdusExp__IdPro__5535A963" Association="Self.FK__ProdusExp__IdPro__5535A963">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="ProdusExpeditie" EntitySet="ProdusExpeditie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProdusGes__IdPro__46E78A0C" Association="Self.FK__ProdusGes__IdPro__46E78A0C">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="ProdusGestionat" EntitySet="ProdusGestionat" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProdusTra__IdPro__5BE2A6F2" Association="Self.FK__ProdusTra__IdPro__5BE2A6F2">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="ProdusTransfer" EntitySet="ProdusTransfer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProdusFinit_Produs" Association="Self.FK_ProdusFinit_Produs">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="ProdusFinit" EntitySet="ProdusFinit" />
+          </AssociationSet>
+          <FunctionImport Name="FStatusDepozit" IsComposable="true" ReturnType="Collection(BD1Model.FStatusDepozit_Result)" />
+          <EntitySet Name="NIR" EntityType="BD1Model.NIR" />
+          <AssociationSet Name="FK__ContinutN__IdNIR__4D94879B" Association="BD1Model.FK__ContinutN__IdNIR__4D94879B">
+            <End Role="NIR" EntitySet="NIR" />
+            <End Role="ContinutNIR" EntitySet="ContinutNIR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NIR__Data__49C3F6B7" Association="BD1Model.FK__NIR__Data__49C3F6B7">
+            <End Role="Depozit" EntitySet="Depozit" />
+            <End Role="NIR" EntitySet="NIR" />
+          </AssociationSet>
+          <EntitySet Name="AvizExpeditie" EntityType="BD1Model.AvizExpeditie" />
+          <AssociationSet Name="FK__AvizExpedi__Data__5165187F" Association="BD1Model.FK__AvizExpedi__Data__5165187F">
+            <End Role="Depozit" EntitySet="Depozit" />
+            <End Role="AvizExpeditie" EntitySet="AvizExpeditie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProdusExp__IdAvi__5441852A" Association="BD1Model.FK__ProdusExp__IdAvi__5441852A">
+            <End Role="AvizExpeditie" EntitySet="AvizExpeditie" />
+            <End Role="ProdusExpeditie" EntitySet="ProdusExpeditie" />
+          </AssociationSet>
+          <FunctionImport Name="FGestionarDepozit" IsComposable="true" ReturnType="Collection(BD1Model.FGestionarDepozit_Result)" />
+          <FunctionImport Name="StocCurentT" IsComposable="true" ReturnType="Collection(Int32)">
+            <Parameter Name="IdProdus" Mode="In" Type="Int32" />
+            <Parameter Name="IdDepozit" Mode="In" Type="Int32" />
+            <Parameter Name="Data" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="StocCurentTB" IsComposable="true" ReturnType="Collection(Int32)">
+            <Parameter Name="IdProdus" Mode="In" Type="Int32" />
+            <Parameter Name="IdDepozit" Mode="In" Type="Int32" />
+            <Parameter Name="Data" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="CMP" IsComposable="true" ReturnType="Collection(BD1Model.CMP_Result)">
+            <Parameter Name="IdProdus" Mode="In" Type="Int32" />
+            <Parameter Name="IdDepozit" Mode="In" Type="Int32" />
+            <Parameter Name="DataIesirii" Mode="In" Type="DateTime" />
+            <Parameter Name="CantitateIesire" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="CMP_StocCurent" IsComposable="true" ReturnType="Collection(BD1Model.CMP_StocCurent_Result)">
+            <Parameter Name="IdProdus" Mode="In" Type="Int32" />
+            <Parameter Name="IdDepozit" Mode="In" Type="Int32" />
+            <Parameter Name="DataIesirii" Mode="In" Type="DateTime" />
+            <Parameter Name="CantitateIesire" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <EntitySet Name="Factura" EntityType="BD1Model.Factura" />
+          <AssociationSet Name="FK_AvizExpeditie_Factura" Association="BD1Model.FK_AvizExpeditie_Factura">
+            <End Role="Factura" EntitySet="Factura" />
+            <End Role="AvizExpeditie" EntitySet="AvizExpeditie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ContinutF__IdFac__3D5E1FD2" Association="BD1Model.FK__ContinutF__IdFac__3D5E1FD2">
+            <End Role="Factura" EntitySet="Factura" />
+            <End Role="ContinutFactura" EntitySet="ContinutFactura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NIR__IdFactura__4AB81AF0" Association="BD1Model.FK__NIR__IdFactura__4AB81AF0">
+            <End Role="Factura" EntitySet="Factura" />
+            <End Role="NIR" EntitySet="NIR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factura_PartenerClient" Association="BD1Model.FK_Factura_PartenerClient">
+            <End Role="Partener" EntitySet="Partener" />
+            <End Role="Factura" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factura_PartenerFurnizor" Association="BD1Model.FK_Factura_PartenerFurnizor">
+            <End Role="Partener" EntitySet="Partener" />
+            <End Role="Factura" EntitySet="Factura" />
+          </AssociationSet>
+          <FunctionImport Name="CalculValoareIesireCMPTV" IsComposable="true" ReturnType="Collection(BD1Model.CalculValoareIesireCMPTV_Result)">
+            <Parameter Name="IdProdus" Mode="In" Type="Int32" />
+            <Parameter Name="IdDepozit" Mode="In" Type="Int32" />
+            <Parameter Name="DataIesire" Mode="In" Type="DateTime" />
+            <Parameter Name="Cantitate" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ActualizareStocInitialSiPretLaFinalAn">
+          </FunctionImport>
+          <FunctionImport Name="BalantaStocuri" IsComposable="true" ReturnType="Collection(BD1Model.BalantaStocuri_Result)">
+            <Parameter Name="DataInitial" Mode="In" Type="DateTime" />
+            <Parameter Name="DataFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="IdDepozit" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="BalantaProdusDetaliat" IsComposable="true" ReturnType="Collection(BD1Model.BalantaProdusDetaliat_Result)">
+            <Parameter Name="DataInitial" Mode="In" Type="DateTime" />
+            <Parameter Name="DataFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="IdDepozit" Mode="In" Type="Int32" />
+            <Parameter Name="IdProdus" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="InfFirma" EntityType="BD1Model.InfFirma" />
+          <FunctionImport Name="ActualizeazaStocInitialSiPret" />
+          <FunctionImport Name="FisaMagazie" IsComposable="true" ReturnType="Collection(BD1Model.FisaMagazie_Result)">
+            <Parameter Name="DataInitial" Mode="In" Type="DateTime" />
+            <Parameter Name="DataFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="IdDepozit" Mode="In" Type="Int32" />
+            <Parameter Name="IdProdus" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FisaMagazie1" IsComposable="true" ReturnType="Collection(BD1Model.FisaMagazie1_Result)">
+            <Parameter Name="DataInitial" Mode="In" Type="DateTime" />
+            <Parameter Name="DataFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="IdDepozit" Mode="In" Type="Int32" />
+            <Parameter Name="IdProdus" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="NIR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdDepozit" Type="Int32" />
+          <Property Name="IdFactura" Type="Int32" />
+          <Property Name="Numar" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Data" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="ContinutNIR" Relationship="BD1Model.FK__ContinutN__IdNIR__4D94879B" FromRole="NIR" ToRole="ContinutNIR" />
+          <NavigationProperty Name="Depozit" Relationship="BD1Model.FK__NIR__Data__49C3F6B7" FromRole="NIR" ToRole="Depozit" />
+          <NavigationProperty Name="Factura" Relationship="BD1Model.FK__NIR__IdFactura__4AB81AF0" FromRole="NIR" ToRole="Factura" />
+        </EntityType>
+        <Association Name="FK__ContinutN__IdNIR__4D94879B">
+          <End Type="BD1Model.NIR" Role="NIR" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BD1Model.ContinutNIR" Role="ContinutNIR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NIR">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContinutNIR">
+              <PropertyRef Name="IdNIR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NIR__Data__49C3F6B7">
+          <End Type="BD1Model.Depozit" Role="Depozit" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BD1Model.NIR" Role="NIR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Depozit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NIR">
+              <PropertyRef Name="IdDepozit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AvizExpeditie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdDepozit" Type="Int32" />
+          <Property Name="Numar" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Data" Type="DateTime" Precision="0" />
+          <Property Name="IdFactura" Type="Int32" />
+          <NavigationProperty Name="Depozit" Relationship="BD1Model.FK__AvizExpedi__Data__5165187F" FromRole="AvizExpeditie" ToRole="Depozit" />
+          <NavigationProperty Name="ProdusExpeditie" Relationship="BD1Model.FK__ProdusExp__IdAvi__5441852A" FromRole="AvizExpeditie" ToRole="ProdusExpeditie" />
+          <NavigationProperty Name="Factura" Relationship="BD1Model.FK_AvizExpeditie_Factura" FromRole="AvizExpeditie" ToRole="Factura" />
+        </EntityType>
+        <Association Name="FK__AvizExpedi__Data__5165187F">
+          <End Type="BD1Model.Depozit" Role="Depozit" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BD1Model.AvizExpeditie" Role="AvizExpeditie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Depozit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AvizExpeditie">
+              <PropertyRef Name="IdDepozit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProdusExp__IdAvi__5441852A">
+          <End Type="BD1Model.AvizExpeditie" Role="AvizExpeditie" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BD1Model.ProdusExpeditie" Role="ProdusExpeditie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AvizExpeditie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProdusExpeditie">
+              <PropertyRef Name="IdAvizExpeditie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="FGestionarDepozit_Result">
+          <Property Type="Int32" Name="GestionarId" Nullable="false" />
+          <Property Type="String" Name="Nume" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Prenume" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DenumiriDepozite" Nullable="true" MaxLength="4000" />
+          <Property Type="Int32" Name="NrDepozite" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="CMP_Result">
+          <Property Type="DateTime" Name="Data" Nullable="true" Precision="10" />
+          <Property Type="Decimal" Name="IntrariQ" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="IntrariCostUnit" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="IntrariCostTotal" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="IesiriQ" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="IesiriCostUnit" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="IesiriCostTotal" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="StocQ" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="StocCostUnit" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="StocCostTotal" Nullable="true" Precision="18" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="CMP_StocCurent_Result">
+          <Property Type="DateTime" Name="Data" Nullable="true" Precision="10" />
+          <Property Type="Decimal" Name="IntrariQ" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="IntrariCostUnit" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="IntrariCostTotal" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="IesiriQ" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="IesiriCostUnit" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="IesiriCostTotal" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="StocQ" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="StocCostUnit" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="StocCostTotal" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="StocCurent" Nullable="true" Precision="18" Scale="2" />
+        </ComplexType>
+        <EntityType Name="Factura">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Numar" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Serie" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Data" Type="DateTime" Precision="0" />
+          <Property Name="Explicatii" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IdPartenerClient" Type="Int32" />
+          <Property Name="IdPartenerFurnizor" Type="Int32" />
+          <NavigationProperty Name="AvizExpeditie" Relationship="BD1Model.FK_AvizExpeditie_Factura" FromRole="Factura" ToRole="AvizExpeditie" />
+          <NavigationProperty Name="ContinutFactura" Relationship="BD1Model.FK__ContinutF__IdFac__3D5E1FD2" FromRole="Factura" ToRole="ContinutFactura" />
+          <NavigationProperty Name="NIR" Relationship="BD1Model.FK__NIR__IdFactura__4AB81AF0" FromRole="Factura" ToRole="NIR" />
+          <NavigationProperty Name="Partener" Relationship="BD1Model.FK_Factura_PartenerClient" FromRole="Factura" ToRole="Partener" />
+          <NavigationProperty Name="Partener1" Relationship="BD1Model.FK_Factura_PartenerFurnizor" FromRole="Factura" ToRole="Partener" />
+        </EntityType>
+        <Association Name="FK_AvizExpeditie_Factura">
+          <End Type="BD1Model.Factura" Role="Factura" Multiplicity="0..1" />
+          <End Type="BD1Model.AvizExpeditie" Role="AvizExpeditie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factura">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AvizExpeditie">
+              <PropertyRef Name="IdFactura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ContinutF__IdFac__3D5E1FD2">
+          <End Type="BD1Model.Factura" Role="Factura" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BD1Model.ContinutFactura" Role="ContinutFactura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factura">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContinutFactura">
+              <PropertyRef Name="IdFactura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NIR__IdFactura__4AB81AF0">
+          <End Type="BD1Model.Factura" Role="Factura" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BD1Model.NIR" Role="NIR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factura">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NIR">
+              <PropertyRef Name="IdFactura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factura_PartenerClient">
+          <End Type="BD1Model.Partener" Role="Partener" Multiplicity="0..1" />
+          <End Type="BD1Model.Factura" Role="Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partener">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Factura">
+              <PropertyRef Name="IdPartenerClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factura_PartenerFurnizor">
+          <End Type="BD1Model.Partener" Role="Partener" Multiplicity="0..1" />
+          <End Type="BD1Model.Factura" Role="Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partener">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Factura">
+              <PropertyRef Name="IdPartenerFurnizor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="CalculValoareIesireCMPTV_Result">
+          <Property Type="Int32" Name="IdProdus" Nullable="true" />
+          <Property Type="Int32" Name="IdDepozit" Nullable="true" />
+          <Property Type="DateTime" Name="DataIesirii" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="CMP" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="Cantitate" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="ValoareIesire" Nullable="true" Precision="18" Scale="4" />
+        </ComplexType>
+        <ComplexType Name="BalantaStocuri_Result">
+          <Property Type="Int32" Name="CodProdus" Nullable="true" />
+          <Property Type="String" Name="NumeProdus" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="StocInitial" Nullable="false" />
+          <Property Type="Decimal" Name="ValoareInitiala" Nullable="false" Precision="21" Scale="2" />
+          <Property Type="Decimal" Name="Intrari" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="ValoareIntrari" Nullable="true" Precision="38" Scale="4" />
+          <Property Type="Decimal" Name="Iesiri" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="ValoareIesiri" Nullable="true" Precision="38" Scale="4" />
+          <Property Type="Decimal" Name="Ajustari" Nullable="false" Precision="2" Scale="2" />
+          <Property Type="Decimal" Name="StocFinal" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="ValoareFinala" Nullable="true" Precision="38" Scale="4" />
+        </ComplexType>
+        <ComplexType Name="BalantaProdusDetaliat_Result">
+          <Property Type="DateTime" Name="DataTranzactie" Nullable="true" Precision="23" />
+          <Property Type="String" Name="TipTranzactie" Nullable="false" MaxLength="14" />
+          <Property Type="String" Name="NumarDocument" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="Cantitate" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="PretUnitar" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="Valoare" Nullable="true" Precision="21" Scale="4" />
+          <Property Type="String" Name="Sens" Nullable="false" MaxLength="7" />
+        </ComplexType>
+        <EntityType Name="InfFirma">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Denumire" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CUI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ContBancar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DataStocInitial" Type="DateTime" Precision="3" />
+        </EntityType>
+        <ComplexType Name="FisaMagazie_Result">
+          <Property Type="Int32" Name="NrCrt" Nullable="true" />
+          <Property Type="DateTime" Name="DataTranzactie" Nullable="true" Precision="10" />
+          <Property Type="String" Name="NumarDocument" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TipDocument" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="CantitateIntrare" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="CantitateIesire" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Stoc" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="PretUnitar" Nullable="true" Precision="18" Scale="4" />
+        </ComplexType>
+        <ComplexType Name="FisaMagazie1_Result">
+          <Property Type="Int32" Name="NrCrt" Nullable="true" />
+          <Property Type="DateTime" Name="DataTranzactie" Nullable="true" Precision="10" />
+          <Property Type="String" Name="NumarDocument" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TipDocument" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="CantitateIntrare" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="CantitateIesire" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Stoc" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="PretUnitar" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="String" Name="CodProdus" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UnitateDeMasura" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BD1ModelStoreContainer" CdmEntityContainer="BD1Entities1">
+          <EntitySetMapping Name="BonConsum">
+            <EntityTypeMapping TypeName="BD1Model.BonConsum">
+              <MappingFragment StoreEntitySet="BonConsum">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdDepozit" ColumnName="IdDepozit" />
+                <ScalarProperty Name="IdProdus" ColumnName="IdProdus" />
+                <ScalarProperty Name="Numar" ColumnName="Numar" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BonTransfer">
+            <EntityTypeMapping TypeName="BD1Model.BonTransfer">
+              <MappingFragment StoreEntitySet="BonTransfer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdDepozitPredator" ColumnName="IdDepozitPredator" />
+                <ScalarProperty Name="Numar" ColumnName="Numar" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="IdDepozitPrimitor" ColumnName="IdDepozitPrimitor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContinutFactura">
+            <EntityTypeMapping TypeName="BD1Model.ContinutFactura">
+              <MappingFragment StoreEntitySet="ContinutFactura">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdFactura" ColumnName="IdFactura" />
+                <ScalarProperty Name="IdProdus" ColumnName="IdProdus" />
+                <ScalarProperty Name="Pret" ColumnName="Pret" />
+                <ScalarProperty Name="Cantitate" ColumnName="Cantitate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContinutNIR">
+            <EntityTypeMapping TypeName="BD1Model.ContinutNIR">
+              <MappingFragment StoreEntitySet="ContinutNIR">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdNIR" ColumnName="IdNIR" />
+                <ScalarProperty Name="IdProdus" ColumnName="IdProdus" />
+                <ScalarProperty Name="Cantitate" ColumnName="Cantitate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Depozit">
+            <EntityTypeMapping TypeName="BD1Model.Depozit">
+              <MappingFragment StoreEntitySet="Depozit">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdGestionar" ColumnName="IdGestionar" />
+                <ScalarProperty Name="Cod" ColumnName="Cod" />
+                <ScalarProperty Name="Denumire" ColumnName="Denumire" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gestionar">
+            <EntityTypeMapping TypeName="BD1Model.Gestionar">
+              <MappingFragment StoreEntitySet="Gestionar">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CNP" ColumnName="CNP" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marfa">
+            <EntityTypeMapping TypeName="BD1Model.Marfa">
+              <MappingFragment StoreEntitySet="Marfa">
+                <ScalarProperty Name="IdProdus" ColumnName="IdProdus" />
+                <ScalarProperty Name="PretStandardMf" ColumnName="PretStandardMf" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Material">
+            <EntityTypeMapping TypeName="BD1Model.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="IdProdus" ColumnName="IdProdus" />
+                <ScalarProperty Name="PretEstimatMat" ColumnName="PretEstimatMat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MateriePrima">
+            <EntityTypeMapping TypeName="BD1Model.MateriePrima">
+              <MappingFragment StoreEntitySet="MateriePrima">
+                <ScalarProperty Name="IdProdus" ColumnName="IdProdus" />
+                <ScalarProperty Name="PretEstimatMP" ColumnName="PretEstimatMP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Partener">
+            <EntityTypeMapping TypeName="BD1Model.Partener">
+              <MappingFragment StoreEntitySet="Partener">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CUI" ColumnName="CUI" />
+                <ScalarProperty Name="TipPartener" ColumnName="TipPartener" />
+                <ScalarProperty Name="Denumire" ColumnName="Denumire" />
+                <ScalarProperty Name="Localitate" ColumnName="Localitate" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="ContBancar" ColumnName="ContBancar" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produs">
+            <EntityTypeMapping TypeName="BD1Model.Produs">
+              <MappingFragment StoreEntitySet="Produs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Cod" ColumnName="Cod" />
+                <ScalarProperty Name="Denumire" ColumnName="Denumire" />
+                <ScalarProperty Name="UnitateDeMasura" ColumnName="UnitateDeMasura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProdusConsum">
+            <EntityTypeMapping TypeName="BD1Model.ProdusConsum">
+              <MappingFragment StoreEntitySet="ProdusConsum">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdBonConsum" ColumnName="IdBonConsum" />
+                <ScalarProperty Name="IdProdus" ColumnName="IdProdus" />
+                <ScalarProperty Name="Cantitate" ColumnName="Cantitate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProdusExpeditie">
+            <EntityTypeMapping TypeName="BD1Model.ProdusExpeditie">
+              <MappingFragment StoreEntitySet="ProdusExpeditie">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdAvizExpeditie" ColumnName="IdAvizExpeditie" />
+                <ScalarProperty Name="IdProdus" ColumnName="IdProdus" />
+                <ScalarProperty Name="Cantitate" ColumnName="Cantitate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProdusFinit">
+            <EntityTypeMapping TypeName="BD1Model.ProdusFinit">
+              <MappingFragment StoreEntitySet="ProdusFinit">
+                <ScalarProperty Name="IdProdus" ColumnName="IdProdus" />
+                <ScalarProperty Name="CostStandard" ColumnName="CostStandard" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProdusGestionat">
+            <EntityTypeMapping TypeName="BD1Model.ProdusGestionat">
+              <MappingFragment StoreEntitySet="ProdusGestionat">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdDepozit" ColumnName="IdDepozit" />
+                <ScalarProperty Name="IdProdus" ColumnName="IdProdus" />
+                <ScalarProperty Name="StocInitial" ColumnName="StocInitial" />
+                <ScalarProperty Name="Pret" ColumnName="Pret" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProdusTransfer">
+            <EntityTypeMapping TypeName="BD1Model.ProdusTransfer">
+              <MappingFragment StoreEntitySet="ProdusTransfer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdBonTransfer" ColumnName="IdBonTransfer" />
+                <ScalarProperty Name="IdProdus" ColumnName="IdProdus" />
+                <ScalarProperty Name="Cantitate" ColumnName="Cantitate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionName="BD1Model.Store.FStatusDepozit" FunctionImportName="FStatusDepozit">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD1Model.FStatusDepozit_Result">
+                <ScalarProperty Name="Cod" ColumnName="Cod" />
+                <ScalarProperty Name="Denumire" ColumnName="Denumire" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="NIR">
+            <EntityTypeMapping TypeName="BD1Model.NIR">
+              <MappingFragment StoreEntitySet="NIR">
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Numar" ColumnName="Numar" />
+                <ScalarProperty Name="IdFactura" ColumnName="IdFactura" />
+                <ScalarProperty Name="IdDepozit" ColumnName="IdDepozit" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AvizExpeditie">
+            <EntityTypeMapping TypeName="BD1Model.AvizExpeditie">
+              <MappingFragment StoreEntitySet="AvizExpeditie">
+                <ScalarProperty Name="IdFactura" ColumnName="IdFactura" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Numar" ColumnName="Numar" />
+                <ScalarProperty Name="IdDepozit" ColumnName="IdDepozit" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="FGestionarDepozit" FunctionName="BD1Model.Store.FGestionarDepozit">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD1Model.FGestionarDepozit_Result">
+                <ScalarProperty Name="GestionarId" ColumnName="GestionarId" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+                <ScalarProperty Name="DenumiriDepozite" ColumnName="DenumiriDepozite" />
+                <ScalarProperty Name="NrDepozite" ColumnName="NrDepozite" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="StocCurentTB" FunctionName="BD1Model.Store.StocCurentTB" />
+          <EntitySetMapping Name="Factura">
+            <EntityTypeMapping TypeName="BD1Model.Factura">
+              <MappingFragment StoreEntitySet="Factura">
+                <ScalarProperty Name="IdPartenerFurnizor" ColumnName="IdPartenerFurnizor" />
+                <ScalarProperty Name="IdPartenerClient" ColumnName="IdPartenerClient" />
+                <ScalarProperty Name="Explicatii" ColumnName="Explicatii" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Serie" ColumnName="Serie" />
+                <ScalarProperty Name="Numar" ColumnName="Numar" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CalculValoareIesireCMPTV" FunctionName="BD1Model.Store.CalculValoareIesireCMPTV">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD1Model.CalculValoareIesireCMPTV_Result">
+                <ScalarProperty Name="IdProdus" ColumnName="IdProdus" />
+                <ScalarProperty Name="IdDepozit" ColumnName="IdDepozit" />
+                <ScalarProperty Name="DataIesirii" ColumnName="DataIesirii" />
+                <ScalarProperty Name="CMP" ColumnName="CMP" />
+                <ScalarProperty Name="Cantitate" ColumnName="Cantitate" />
+                <ScalarProperty Name="ValoareIesire" ColumnName="ValoareIesire" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ActualizareStocInitialSiPretLaFinalAn" FunctionName="BD1Model.Store.ActualizareStocInitialSiPretLaFinalAn" />
+          <FunctionImportMapping FunctionImportName="BalantaStocuri" FunctionName="BD1Model.Store.BalantaStocuri">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD1Model.BalantaStocuri_Result">
+                <ScalarProperty Name="CodProdus" ColumnName="CodProdus" />
+                <ScalarProperty Name="NumeProdus" ColumnName="NumeProdus" />
+                <ScalarProperty Name="StocInitial" ColumnName="StocInitial" />
+                <ScalarProperty Name="ValoareInitiala" ColumnName="ValoareInitiala" />
+                <ScalarProperty Name="Intrari" ColumnName="Intrari" />
+                <ScalarProperty Name="ValoareIntrari" ColumnName="ValoareIntrari" />
+                <ScalarProperty Name="Iesiri" ColumnName="Iesiri" />
+                <ScalarProperty Name="ValoareIesiri" ColumnName="ValoareIesiri" />
+                <ScalarProperty Name="Ajustari" ColumnName="Ajustari" />
+                <ScalarProperty Name="StocFinal" ColumnName="StocFinal" />
+                <ScalarProperty Name="ValoareFinala" ColumnName="ValoareFinala" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BalantaProdusDetaliat" FunctionName="BD1Model.Store.BalantaProdusDetaliat">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD1Model.BalantaProdusDetaliat_Result">
+                <ScalarProperty Name="DataTranzactie" ColumnName="DataTranzactie" />
+                <ScalarProperty Name="TipTranzactie" ColumnName="TipTranzactie" />
+                <ScalarProperty Name="NumarDocument" ColumnName="NumarDocument" />
+                <ScalarProperty Name="Cantitate" ColumnName="Cantitate" />
+                <ScalarProperty Name="PretUnitar" ColumnName="PretUnitar" />
+                <ScalarProperty Name="Valoare" ColumnName="Valoare" />
+                <ScalarProperty Name="Sens" ColumnName="Sens" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="InfFirma">
+            <EntityTypeMapping TypeName="BD1Model.InfFirma">
+              <MappingFragment StoreEntitySet="InfFirma">
+                <ScalarProperty Name="DataStocInitial" ColumnName="DataStocInitial" />
+                <ScalarProperty Name="ContBancar" ColumnName="ContBancar" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="CUI" ColumnName="CUI" />
+                <ScalarProperty Name="Denumire" ColumnName="Denumire" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ActualizeazaStocInitialSiPret" FunctionName="BD1Model.Store.ActualizeazaStocInitialSiPret" />
+          <FunctionImportMapping FunctionImportName="FisaMagazie" FunctionName="BD1Model.Store.FisaMagazie">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD1Model.FisaMagazie_Result">
+                <ScalarProperty Name="NrCrt" ColumnName="NrCrt" />
+                <ScalarProperty Name="DataTranzactie" ColumnName="DataTranzactie" />
+                <ScalarProperty Name="NumarDocument" ColumnName="NumarDocument" />
+                <ScalarProperty Name="TipDocument" ColumnName="TipDocument" />
+                <ScalarProperty Name="CantitateIntrare" ColumnName="CantitateIntrare" />
+                <ScalarProperty Name="CantitateIesire" ColumnName="CantitateIesire" />
+                <ScalarProperty Name="Stoc" ColumnName="Stoc" />
+                <ScalarProperty Name="PretUnitar" ColumnName="PretUnitar" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FisaMagazie1" FunctionName="BD1Model.Store.FisaMagazie1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD1Model.FisaMagazie1_Result">
+                <ScalarProperty Name="NrCrt" ColumnName="NrCrt" />
+                <ScalarProperty Name="DataTranzactie" ColumnName="DataTranzactie" />
+                <ScalarProperty Name="NumarDocument" ColumnName="NumarDocument" />
+                <ScalarProperty Name="TipDocument" ColumnName="TipDocument" />
+                <ScalarProperty Name="CantitateIntrare" ColumnName="CantitateIntrare" />
+                <ScalarProperty Name="CantitateIesire" ColumnName="CantitateIesire" />
+                <ScalarProperty Name="Stoc" ColumnName="Stoc" />
+                <ScalarProperty Name="PretUnitar" ColumnName="PretUnitar" />
+                <ScalarProperty Name="CodProdus" ColumnName="CodProdus" />
+                <ScalarProperty Name="UnitateDeMasura" ColumnName="UnitateDeMasura" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
