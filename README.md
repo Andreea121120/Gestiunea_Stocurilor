@@ -15,6 +15,6 @@ Aplicația realizată automatizează și optimizează întregul proces de gestiu
 ## Tehnologii  
 
 - C#    
-- WinForms.NET EntitFramework
+- WinForms.NET Framework
 - SQL Server    
  
