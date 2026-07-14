@@ -1,5 +1,5 @@
 # Gestiunea Stocurilor App
-Aplicația automatizează și optimizează întregul proces de gestiune a stocurilor, permițând evidența, monitorizarea și controlul intrărilor, ieșirilor, transferurilor și documentelor asociate fiecărui produs.Gestionarea produselor (adăugare, editare, clasificare).
+Aplicația automatizează și optimizează întregul proces de gestiune a stocurilor, permițând evidența, monitorizarea și controlul intrărilor, ieșirilor, transferurilor și documentelor asociate fiecărui produs. Gestionarea produselor (adăugare, editare, clasificare).
 
 # Funcționalități
 -Administrarea depozitelor și gestionarilor.  
