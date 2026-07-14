@@ -3,17 +3,17 @@ Aplicația realizată automatizează și optimizează întregul proces de gestiu
 
 # Funcționalități
 -Administrarea depozitelor și gestionarilor.  
--Repartizarea produselor în depozite și stabilirea stocului inițial.
--Generarea documentelor: NIR, aviz, bon transfer, bon consum, factură.
--Editarea și consultarea documentelor existente.
--Afișarea stocului curent pentru orice produs.
--Generarea balanței stocurilor.
--Istoricul complet al unui produs.
--Fișa de magazie.
--Calcul automat CMP pentru evaluarea ieșirilor.
+-Repartizarea produselor în depozite și stabilirea stocului inițial.  
+-Generarea documentelor: NIR, aviz, bon transfer, bon consum, factură.  
+-Editarea și consultarea documentelor existente.  
+-Afișarea stocului curent pentru orice produs.  
+-Generarea balanței stocurilor.  
+-Istoricul complet al unui produs.  
+-Fișa de magazie.  
+-Calcul automat CMP pentru evaluarea ieșirilor.  
 
-## Tehnologii
+## Tehnologii  
 
-- C#  
-- .NET Framework  
-- Windows Forms
+- C#    
+- .NET Framework    
+- Windows Forms  
