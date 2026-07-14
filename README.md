@@ -1,18 +1,18 @@
-# Gestiunea Stocurilor App
-Aplicația automatizează și optimizează întregul proces de gestiune a stocurilor, permițând evidența, monitorizarea și controlul intrărilor, ieșirilor, transferurilor și documentelor asociate fiecărui produs. Gestionarea produselor (adăugare, editare, clasificare).
+# Inventory Management App
+The application automates and optimizes the entire inventory management process, allowing the recording, monitoring and control of inputs, outputs, transfers and documents associated with each product. Product management (adding, editing, classifying).
 
-# Funcționalități
--Administrarea depozitelor și gestionarilor.  
--Repartizarea produselor în depozite și stabilirea stocului inițial.  
--Generarea documentelor: NIR, aviz, bon transfer, bon consum, factură.  
--Editarea și consultarea documentelor existente.  
--Afișarea stocului curent pentru orice produs.  
--Generarea balanței stocurilor.  
--Istoricul complet al unui produs.  
--Fișa de magazie.  
--Calcul automat CMP pentru evaluarea ieșirilor.  
+# Features
+- Administration of warehouses and managers. 
+- Distribution of products in warehouses and establishment of the initial stock. 
+- Generation of documents: NIR, notice, transfer voucher, consumption voucher, invoice. 
+- Editing and consulting existing documents. 
+- Show current stock for any product. 
+- Generating the inventory balance. 
+- The complete history of a product. 
+- The warehouse sheet. 
+- Automatic CMP calculation for output evaluation. 
 
-## Tehnologii  
+## Technologies used  
 
 - C#    
 - WinForms.NET Framework
