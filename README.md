@@ -18,37 +18,46 @@ The application automates and optimizes the entire inventory management process,
 - WinForms.NET Framework
 - SQL Server
 
+
 ## Screenshots
 
 ### Main Interface
 
-![Main Menu](screenshots/Pagina%20principala.png)
+<p align="center">
+  <img src="screenshots/Pagina%20principala.png" width="400" alt="Main Menu">
+</p>
 
 ### Product Management
 
-![Add Product](screenshots/Formular%20de%20adaugare%20produs.png)
+<p align="center">
+  <img src="screenshots/Formular%20de%20adaugare%20produs.png" width="400" alt="Add Product">
+</p>
 
 ### Warehouse Management
 
-![Product Allocation](screenshots/Formular%20repartizare%20produs.png)
+<p align="center">
+  <img src="screenshots/Formular%20repartizare%20produs.png" width="400" alt="Product Allocation">
+</p>
 
 ### Document Management
 
-![Goods Receipt Note - NIR](screenshots/Formular%20emitere%20NIR.png)
-
-![Invoice](screenshots/Formular%20emitere%20factura.png)
+<p align="center">
+  <img src="screenshots/Formular%20emitere%20NIR.png" width="400" alt="Goods Receipt Note">
+  <img src="screenshots/Formular%20emitere%20factura.png" width="400" alt="Invoice">
+</p>
 
 ### Stock Monitoring
 
-![Current Stock](screenshots/Formular%20consultare%20stoc%20curente.png)
-
-![Warehouse Ledger Filters](screenshots/Formular%20accesare%20fisa%20magazie.png)
+<p align="center">
+  <img src="screenshots/Formular%20consultare%20stoc%20curente.png" width="400" alt="Current Stock">
+  <img src="screenshots/Formular%20accesare%20fisa%20magazie.png" width="400" alt="Warehouse Ledger Filters">
+</p>
 
 ### Inventory Reports
 
-![Inventory Balance Report](screenshots/Raport%20balanta%20stocurilor.png)
+<p align="center">
+  <img src="screenshots/Raport%20balanta%20stocurilor.png" width="400" alt="Inventory Balance">
+  <img src="screenshots/Raport%20fisa%20magazie.png" width="400" alt="Warehouse Ledger">
+  <img src="screenshots/Raport%20miscare%20produs.png" width="400" alt="Product Movement History">
+</p>
 
-![Warehouse Ledger Report](screenshots/Raport%20fisa%20magazie.png)
-
-![Product Movement History](screenshots/Raport%20miscare%20produs.png)
- 
