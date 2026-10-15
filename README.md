@@ -16,5 +16,39 @@ The application automates and optimizes the entire inventory management process,
 
 - C#    
 - WinForms.NET Framework
-- SQL Server    
+- SQL Server
+
+## Screenshots
+
+### Main Interface
+
+![Main Menu](screenshots/Pagina%20principala.png)
+
+### Product Management
+
+![Add Product](screenshots/Formular%20de%20adaugare%20produs.png)
+
+### Warehouse Management
+
+![Product Allocation](screenshots/Formular%20repartizare%20produs.png)
+
+### Document Management
+
+![Goods Receipt Note - NIR](screenshots/Formular%20emitere%20NIR.png)
+
+![Invoice](screenshots/Formular%20emitere%20factura.png)
+
+### Stock Monitoring
+
+![Current Stock](screenshots/Formular%20consultare%20stoc%20curente.png)
+
+![Warehouse Ledger Filters](screenshots/Formular%20accesare%20fisa%20magazie.png)
+
+### Inventory Reports
+
+![Inventory Balance Report](screenshots/Raport%20balanta%20stocurilor.png)
+
+![Warehouse Ledger Report](screenshots/Raport%20fisa%20magazie.png)
+
+![Product Movement History](screenshots/Raport%20miscare%20produs.png)
  
